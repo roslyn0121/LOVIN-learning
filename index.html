@@ -63,10 +63,117 @@
         
         .qa-item { margin-bottom: 20px; border-bottom: 1px solid var(--milk-cream); padding-bottom: 15px; }
         .qa-q { color: var(--gold); font-weight: bold; font-size: 1.05rem; display: block; margin-bottom: 5px; }
-        .qa-fact { font-size: 0.8rem; color: #999; margin-bottom: 8px; font-style: italic; }
         .qa-a { color: var(--deep-sage); background: var(--soft-yellow); padding: 10px 15px; border-radius: 10px; display: block; }
-        .qa-a div { margin-bottom: 4px; border-left: 2px solid var(--gold); padding-left: 8px; }
 
+        .power-item { background: var(--soft-yellow); padding: 15px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid var(--gold); }
+        .highlight { color: var(--accent-red); font-weight: bold; }
+        .client-tag { display: inline-block; background: var(--milk-cream); padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin: 2px; border: 1px solid var(--soft-peach); }
+        
+        .promo-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .promo-table td { padding: 12px 5px; border-bottom: 1px solid var(--milk-cream); font-size: 0.95rem; }
+        .price { font-weight: bold; color: var(--accent-red); text-align: right; }
+        
+        .gift-list { list-style: none; padding: 0; margin: 10px 0; }
+        .gift-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 0.95rem; }
+        .gift-list b { color: var(--gold); text-align: right; }
+        
+        .example-box { background: var(--soft-yellow); padding: 15px; border-radius: 12px; font-size: 0.9rem; margin-top: 15px; border: 1px solid var(--soft-peach); }
+
+        footer { text-align: center; padding: 30px; font-size: 0.75rem; color: var(--sage-green); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="brand-logo">LOVIN</h1>
+    <div class="promo-tag">🌸 80週年旗艦品牌百科</div>
+</header>
+
+<nav>
+    <button class="active" onclick="switchTab('brand')">品牌實力</button>
+    <button onclick="switchTab('promo')">促銷活動</button>
+    <button onclick="switchTab('gift')">活動贈品</button>
+    <button onclick="switchTab('qa')">應對話術</button>
+</nav>
+
+<div class="container">
+    
+    <div id="brand" class="section active">
+        <div class="card">
+            <h2>【 LOVIN堅果銷售攻略 】</h2>
+            <p><strong>LOVIN</strong>，由全台最大堅果進口商<strong>「同興實業」</strong>創立的自有品牌。母公司有 80 年歷史，是台灣堅果市佔率最高的公司。</p>
+            <div class="power-item">
+                🔥 <strong>市場震撼彈：</strong><br>
+                市面上 <span class="highlight">3 顆夏威夷豆，有 2 顆</span>就是從我們家出去的！
+            </div>
+            <p>📍 <strong>門市據點：</strong><br>
+            台北車站 | 中山誠品 | 松菸誠品 | 信義 A8</p>
+        </div>
+    </div>
+
+    <div id="promo" class="section">
+        <div class="card">
+            <h2>隨手包系列方案</h2>
+            <table class="promo-table">
+                <tr><td>方案</td><td>單一</td><td>混搭</td></tr>
+                <tr><td>10 入</td><td class="price">$569</td><td class="price">$669</td></tr>
+                <tr><td>20 入</td><td class="price">$999</td><td class="price">$1099</td></tr>
+                <tr><td>40 入</td><td class="price">$1799</td><td class="price">$1899</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="gift" class="section">
+        <div class="card">
+            <h2>滿額贈清單</h2>
+            <ul class="gift-list">
+                <li><span>500 元</span> <b>試吃包 2入</b></li>
+                <li><span>1000 元</span> <b>試吃包 4入</b></li>
+                <li><span>3000 元</span> <b>品牌麻布袋</b></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="qa" class="section">
+        <div class="card">
+            <h2>應對話術</h2>
+            <div class="qa-item">
+                <span class="qa-q">Q: 為什麼比量販店貴？</span>
+                <span class="qa-a">因為我們採用「低溫烘焙」而非高溫油炸，雖然成本高，但能保留 90% 以上營養。</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 LOVIN - Premium Nuts Specialist.
+</footer>
+
+<script>
+    // 讓按鈕可以切換內容的關鍵程式
+    function switchTab(tabId) {
+        // 1. 隱藏所有頁面
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        // 2. 取消按鈕的高亮狀態
+        const buttons = document.querySelectorAll('nav button');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // 3. 顯示點選的頁面
+        document.getElementById(tabId).classList.add('active');
+
+        // 4. 高亮目前的按鈕
+        event.currentTarget.classList.add('active');
+        
+        // 捲動回頂部
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
+
+</body>
+</html>
         .power-item { background: var(--soft-yellow); padding: 15px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid var(--gold); }
         .highlight { color: var(--accent-red); font-weight: bold; }
         .client-tag { display: inline-block; background: var(--milk-cream); padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin: 2px; border: 1px solid var(--soft-peach); }
