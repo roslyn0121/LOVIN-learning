@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVIN | 80週年旗艦銷售百科</title>
+    <style>
+        :root {
+            --milk-cream: #FBF2E2;   
+            --soft-yellow: #FFEFD7; 
+            --soft-peach: #F6DDCE; 
+            --sage-green: #BBB2A2;   
+            --deep-sage: #8A9A8E;    
+            --gold: #B8975A;         
+            --white: #FFFFFF;        
+            --accent-red: #D32F2F;   
+        }
+
+        body {
+            font-family: "PingFang TC", "STHeiti", sans-serif;
+            background-color: var(--milk-cream);
+            color: var(--deep-sage);
+            margin: 0; padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--soft-peach);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .brand-logo { font-size: 2.2rem; letter-spacing: 6px; margin: 0; font-weight: 900; color: var(--deep-sage); }
+        .promo-tag { background: var(--gold); color: white; display: inline-block; padding: 2px 12px; border-radius: 50px; font-size: 0.8rem; margin-top: 8px; }
+
+        nav {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px;
+        }
+
+        nav button {
+            padding: 10px 5px; border: 1.5px solid var(--sage-green); background: var(--white);
+            color: var(--sage-green); border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            font-size: 0.85rem;
+        }
+
+        nav button.active { background: var(--deep-sage); color: var(--white); border-color: var(--deep-sage); }
+
+        .container { padding: 0 15px 40px; max-width: 600px; margin: auto; }
+        .section { display: none; animation: fadeIn 0.4s; }
+        .section.active { display: block; }
+
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+
+        .card {
+            background: var(--white); border-radius: 20px; padding: 25px;
+            margin-bottom: 25px; box-shadow: 0 8px 20px rgba(187, 178, 162, 0.15);
+        }
+
+        h2 { color: var(--gold); border-left: 5px solid var(--soft-peach); padding-left: 15px; margin-top: 0; font-size: 1.3rem; }
+        h3 { color: var(--deep-sage); font-size: 1.1rem; margin-top: 20px; border-bottom: 1px solid var(--soft-peach); display: inline-block; }
+        
+        .qa-item { margin-bottom: 20px; border-bottom: 1px solid var(--milk-cream); padding-bottom: 15px; }
+        .qa-q { color: var(--gold); font-weight: bold; font-size: 1.05rem; display: block; margin-bottom: 5px; }
+        .qa-fact { font-size: 0.8rem; color: #999; margin-bottom: 8px; font-style: italic; }
+        .qa-a { color: var(--deep-sage); background: var(--soft-yellow); padding: 10px 15px; border-radius: 10px; display: block; }
+        .qa-a div { margin-bottom: 4px; border-left: 2px solid var(--gold); padding-left: 8px; }
+
+        .power-item { background: var(--soft-yellow); padding: 15px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid var(--gold); }
+        .highlight { color: var(--accent-red); font-weight: bold; }
+        .client-tag { display: inline-block; background: var(--milk-cream); padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin: 2px; border: 1px solid var(--soft-peach); }
+        
+        .promo-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .promo-table td { padding: 12px 5px; border-bottom: 1px solid var(--milk-cream); font-size: 0.95rem; }
+        .price { font-weight: bold; color: var(--accent-red); text-align: right; }
+        
+        .gift-list { list-style: none; padding: 0; margin: 10px 0; }
+        .gift-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 0.95rem; }
+        .gift-list b { color: var(--gold); text-align: right; }
+        
+        .example-box { background: var(--soft-yellow); padding: 15px; border-radius: 12px; font-size: 0.9rem; margin-top: 15px; border: 1px solid var(--soft-peach); }
+        .hr-line { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
+        
+        .knowledge-item { margin-bottom: 25px; }
+        .knowledge-tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: bold; margin-bottom: 5px; }
+
+        footer { text-align: center; padding: 30px; font-size: 0.75rem; color: var(--sage-green); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="brand-logo">LOVIN</h1>
+    <div class="promo-tag">🌸 80週年旗艦品牌百科</div>
+</header>
+
+<nav>
+    <button class="active" onclick="switchTab('brand')">品牌實力</button>
+    <button onclick="switchTab('promo')">促銷活動</button>
+    <button onclick="switchTab('gift')">活動如下</button>
+    <button onclick="switchTab('qa')">應對話術</button>
+    <button onclick="switchTab('faq')">常見問題</button>
+    <button onclick="switchTab('flavors')">口味介紹</button>
+    <button onclick="switchTab('knowledge')">堅果知識</button>
+</nav>
+
+<div class="container">
+    
+    <div id="brand" class="section active">
+        <div class="card">
+            <h2>【 LOVIN堅果銷售攻略 】</h2>
+            <p><strong>LOVIN</strong>，由全台最大堅果進口商<strong>「同興實業」</strong>創立的自有品牌。母公司有 <strong>80 年歷史</strong>，專門做食品貿易進口，是台灣堅果市佔率最高（佔 9 成）的公司。</p>
+            
+            <div class="power-item">
+                🔥 <strong>市場震撼彈：</strong><br>
+                市面上 <span class="highlight">3 顆夏威夷豆，有 2 顆</span>就是從我們家出去的！
+            </div>
+            
+            <p style="font-size: 0.9rem;"><strong>⚙️ 研發實力：</strong></p>
+            <div class="power-item" style="background: #eef2f3; border-left-color: var(--deep-sage);">
+                • <strong>手作堅果商品：</strong>運用「手作堅果廚房」研發能力，推出限定、季節性新品。<br>
+                • <strong>獨家 AI 第五代智能低溫烘培</strong><br>
+                • <strong>急速冷粹技術</strong>（鎖住營養與鮮甜）
+            </div>
+
+            <p style="font-size: 0.9rem;"><strong>合作/聯名廠商：</strong></p>
+            <div style="margin-bottom: 10px;">
+                <span class="client-tag">東方文華酒店</span><span class="client-tag">圓山大飯店</span><span class="client-tag">詩特莉</span><span class="client-tag">天仁茗茶</span>
+                <span class="client-tag">華膳空廚</span><span class="client-tag">大巨蛋</span><span class="client-tag">金格食品</span><span class="client-tag">立法院</span><span class="client-tag">遠雄人壽</span>
+                <span class="client-tag">吳寶春</span>
+            </div>
+
+            <p style="font-size: 0.9rem;"><strong>原物料出口給：</strong></p>
+            <div style="margin-bottom: 20px;">
+                <span class="client-tag">大稻埕堅果</span><span class="client-tag">萬歲牌</span><span class="client-tag">各大量販店</span><span class="client-tag">五星級酒店</span>
+                <span class="client-tag">亞尼克</span><span class="client-tag">紅布朗</span>
+            </div>
+            
+            <div class="power-item" style="background: var(--milk-cream);">
+                <strong>💡 核心差異點：</strong><br>
+                👉 不同品牌原料等級差很多。別人選便宜原料，吃起來<span class="highlight">油耗味重</span>；<br>
+                👉 <strong>LOVIN</strong> 堅持用最高等級原料，成本高但吃得出差異。
+            </div>
+            <p style="font-size: 0.9rem;">📍 <strong>門市據點：</strong><br>
+            台北車站 | 中山誠品 | 松菸誠品 | 信義 A8</p>
+        </div>
+    </div>
+
+    <div id="promo" class="section">
+        <div class="card">
+            <h2>隨手包系列方案</h2>
+            <table class="promo-table">
+                <tr><td>方案</td><td>單一口味</td><td>混搭口味</td></tr>
+                <tr><td>10 入</td><td class="price">$569</td><td class="price">$669</td></tr>
+                <tr><td>20 入</td><td class="price">$999</td><td class="price">$1099</td></tr>
+                <tr><td>40 入</td><td class="price">$1799</td><td class="price">$1899</td></tr>
+            </table>
+            
+            <h3 style="margin-top:25px;">🔥 指定即期優惠</h3>
+            <p style="font-size: 0.85rem; color: var(--accent-red); margin-bottom: 5px;">指定口味：太妃、摩卡、椒鹽、焦糖、鱈魚、芥末⋯等 (效期剩6個月內)</p>
+            <div class="power-item" style="background: #FFF5F5; border-left-color: var(--accent-red);">
+                • <strong>20入組：</strong> 原價 $1099 ➔ <span class="highlight">特價 $899</span><br>
+                <small>(需包含 10 包以上即期口味)</small><br><br>
+                • <strong>40入組：</strong> 原價 $1899 ➔ <span class="highlight">特價 $1699</span><br>
+                <small>(需包含 20 包以上即期口味)</small>
+            </div>
+        </div>
+        <div class="card">
+            <h2>📦 袋裝 / 罐裝系列</h2>
+            <p style="font-weight: bold; text-align: center; font-size: 1.2rem; color: var(--accent-red);">全品項 買四送一</p>
+        </div>
+        <div class="card">
+            <h2>✨ 大宗結帳折扣</h2>
+            <p>• 滿 <strong>$3,000</strong> ➔ 享 <strong>95 折</strong></p>
+            <p>• 滿 <strong>$5,000</strong> ➔ 享 <strong>9 折</strong></p>
+        </div>
+    </div>
+
+    <div id="gift" class="section">
+        <div class="card">
+            <h2>活動如下</h2>
+            <p style="font-weight: bold; color: var(--deep-sage); border-bottom: 2px solid var(--soft-peach); padding-bottom: 5px;">滿額贈清單</p>
+            <ul class="gift-list">
+                <li><span>500 元</span> <b>試吃包 2入 / 茶包 2入</b></li>
+                <li><span>1000 元</span> <b>試吃包 4入</b></li>
+                <li><span>1200 元</span> <b>蛋捲兩隻</b></li>
+                <li><span>2000 元</span> <b>即期口味隨手包 4入</b></li>
+                <li><span>3000 元</span> <b>品牌麻布袋</b></li>
+                <li><span>5000 元</span> <b>雲朵禮盒隨手包 6入</b></li>
+                <li><span>10000 元</span> <b>任選款式中禮盒(12入隨手包)</b></li>
+                <li><span>20000 元</span> <b>烏魚子禮盒</b></li>
+            </ul>
+
+            <div class="example-box">
+                <strong>🎁 贈品累贈方式說明：</strong><br>
+                EX : 客人消費 8000 元<br>
+                可得 <span class="highlight">5000元滿額贈(雲朵禮盒) + 3000元滿額贈(麻布袋)</span><br>
+                <small style="color: #666;">（※ 金額需超過門檻總和 5000 + 3000 才可累積贈送）</small>
+            </div>
+        </
