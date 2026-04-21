@@ -3,329 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOVIN 品牌全書：員工教育訓練手冊</title>
+    <title>LOVIN 品牌全書 | 內部教育訓練手冊</title>
     <style>
         :root {
             --primary-green: #e6f2ed; /* A986-53258 蘇打綠 */
             --creamy-white: #fffaf5; /* A986-2192 百合白 */
             --dark-green: #2c4a3e;
             --gold-accent: #c5a059;
-            --text-color: #333;
+            --light-orange: #fff6e9; /* 圖片中的淺橘色背景 */
+            --tag-gray: #f2f2f2;
+            --text-color: #555;
+            --price-red: #d32f2f;
         }
 
         body {
             font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
             background-color: var(--creamy-white);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
-        /* 導覽列 */
-        nav {
-            background-color: white;
-            padding: 15px;
+        /* 頂部導航分頁按鈕 */
+        .tab-bar {
+            background-color: #fff;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 5px 0;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--dark-green);
+        .tab-btn {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: none;
             font-weight: bold;
-            font-size: 14px;
-            padding: 5px 10px;
-            border-radius: 5px;
+            color: var(--text-color);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
         }
 
-        nav a:hover {
-            background-color: var(--primary-green);
-        }
-
-        /* 頁首 */
-        header {
-            background-color: var(--primary-green);
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--gold-accent);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: 2px;
+        .tab-btn.active {
             color: var(--dark-green);
+            border-bottom: 3px solid var(--gold-accent);
+            background-color: var(--primary-green);
         }
 
-        header p {
-            font-size: 1.1em;
-            margin-top: 10px;
-        }
-
-        /* 容器 */
-        .container {
+        /* 內容區塊 */
+        .content-section {
+            display: none; /* 預設隱藏 */
+            padding: 20px;
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            animation: fadeIn 0.5s;
         }
 
-        section {
-            margin-bottom: 60px;
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 卡片設計 */
+        .card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
         }
 
-        h2 {
-            color: var(--dark-green);
-            border-left: 5px solid var(--gold-accent);
-            padding-left: 15px;
-            margin-bottom: 25px;
-            font-size: 1.5em;
-        }
-
-        h3 {
-            color: var(--gold-accent);
-            margin-top: 30px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-
-        .highlight {
-            color: #d32f2f;
-            font-weight: bold;
-        }
-
-        /* 銷售話術區塊 */
-        .speech-bubble {
-            background-color: var(--primary-green);
+        .highlight-box {
+            background-color: var(--light-orange);
+            border-radius: 8px;
             padding: 15px;
-            border-radius: 10px;
+            border-left: 5px solid var(--gold-accent);
             margin: 15px 0;
-            border-left: 4px solid var(--dark-green);
-            font-style: italic;
         }
 
-        /* 表格樣式 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .info-tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
         }
 
-        th, td {
+        .info-tag {
+            background: var(--tag-gray);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
             border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
         }
 
-        th {
-            background-color: var(--primary-green);
-        }
+        h2 { color: var(--dark-green); border-bottom: 2px solid var(--primary-green); padding-bottom: 10px; }
+        h3 { color: var(--gold-accent); margin-top: 25px; }
 
-        /* 底部 */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: var(--dark-green);
-            color: white;
-        }
+        /* 方案表格 */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background: var(--primary-green); }
+        .price { color: var(--price-red); font-weight: bold; }
 
-        .location-tag {
-            display: inline-block;
-            background: var(--primary-green);
-            color: var(--dark-green);
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin: 5px;
-            font-weight: bold;
-        }
+        /* QA 樣式 */
+        .qa-item { margin-bottom: 25px; }
+        .qa-q { font-weight: bold; color: var(--dark-green); font-size: 1.1em; margin-bottom: 8px; }
+        .qa-fact { color: #888; font-size: 0.9em; margin-bottom: 10px; }
+        .qa-a { background: var(--light-orange); padding: 12px; border-radius: 8px; border-left: 4px solid var(--gold-accent); }
+
+        footer { text-align: center; padding: 30px; font-size: 0.8em; color: #999; }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#core">品牌故事</a>
-    <a href="#encyclopedia">堅果百科</a>
-    <a href="#flavors">隨手包口味</a>
-    <a href="#strategy">銷售攻略</a>
-    <a href="#qa">常見QA</a>
-</nav>
+<div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab('brand')">品牌概覽</button>
+    <button class="tab-btn" onclick="showTab('encyclopedia')">知識百科</button>
+    <button class="tab-btn" onclick="showTab('flavors')">隨手包口味</button>
+    <button class="tab-btn" onclick="showTab('sales')">銷售方案</button>
+    <button class="tab-btn" onclick="showTab('qa')">實戰 QA</button>
+</div>
 
-<header>
-    <h1>🌍 LOVIN 堅果</h1>
-    <p><strong>品牌全書與銷售攻略：員工教育訓練手冊</strong></p>
-    <p>品牌權威 × 產品細節 × 銷售心理學</p>
-</header>
-
-<div class="container">
-
-    <section id="core">
-        <h2>一、 品牌核心故事：80年進口商的精品堅持</h2>
-        <p>LOVIN 是由全台最大堅果進口商「<strong>同興實業</strong>」創立的自有品牌。</p>
-        <ul>
-            <li><strong>背景權威：</strong>母公司擁有 80 年 食品貿易歷史，是台灣堅果市佔率最高（佔 9 成）的公司。</li>
-            <li><strong>市場霸主：</strong><span class="highlight">🔥 市面上每 3 顆夏威夷豆，就有 2 顆是從我們家出去的！</span></li>
-            <li><strong>大廠背書：</strong>萬歲牌、紅布朗、亞尼克、吳寶春、大稻埕堅果等，皆向我們採購原料。</li>
-            <li><strong>等級差異：</strong>LOVIN 選用的是最高等級原料。不同於其他品牌選用便宜原料導致油耗味重，LOVIN 雖然成本高，但吃得出絕對差異。</li>
-            <li><strong>高端合作：</strong>前兩年主攻 B2B 路線，是晶華飯店、老爺酒店、文華東方、詩特莉甜點、天仁茗茶等知名企業的合作品牌。</li>
-            <li><strong>全新布局：</strong>去年起正式拓展 B2C 門市經營，讓消費者直接吃到最頂級、新鮮的堅果。</li>
-        </ul>
-    </section>
-
-    <section id="encyclopedia">
-        <h2>二、 堅果百科：全世界最佳產地與營養</h2>
-        <p>LOVIN 堅持選自全球最優產地，並採用 <strong>第五代 AI 烘粹技術（毫米波精準控溫）</strong>，提升新鮮度 20%、增強香氣 10%、降低水分流失 15%，達成極致酥脆口感。</p>
-
-        <h3>【 單品知識與產地比較 】</h3>
-        <p><strong>🩵 夏威夷果｜來自澳洲</strong></p>
-        <ul>
-            <li>特色：頂級「1 號果」、大顆奶黃、口感綿密、手工剝殼。</li>
-            <li>比較：南非產果小、偏硬、口感乾澀。</li>
-        </ul>
-
-        <p><strong>🤎 胡桃｜來自美國（綠谷產區）</strong></p>
-        <ul>
-            <li>特色：完整 1/2 顆「猛瑪象級」、香甜順口、尾韻帶淡淡可可香。</li>
-            <li>營養：最強抗氧化，降低慢性病風險。</li>
-        </ul>
-
-        <p><strong>🤍 腰果｜來自越南（安迪工廠，專供日本）</strong></p>
-        <ul>
-            <li>特色：新鮮香脆帶奶香。堅持選用日商「安迪」工廠出口等級，品質穩定。</li>
-        </ul>
-
-        <p><strong>💛 核桃｜來自美國</strong></p>
-        <ul>
-            <li>特色：完整半顆、白色無油耗、溫潤不苦澀。市售多碎小且色澤深。</li>
-        </ul>
-
-        <p><strong>🩵 杏仁粒｜來自美國藍鑽公司（全球第一）</strong></p>
-        <ul>
-            <li>特色：顆粒飽滿酥脆。市售杏仁小顆易乾澀。</li>
-        </ul>
-
-        <p><strong>💚 開心果｜來自美國</strong></p>
-        <ul>
-            <li>特色：大顆白淨、零農藥殘留。口感偏軟是自然甜味而非受潮。</li>
-            <li>比較：伊朗產地顏色深黑且偏硬，農藥殘留多。</li>
-        </ul>
-
-        <p><strong>❤️ 蔓越莓｜來自美國</strong></p>
-        <ul>
-            <li>特色：「整粒」果實、顏色偏紫、甜度低、酸度高。</li>
-            <li>比較：市售多為蔓越莓「片」且糖份重。</li>
-        </ul>
-
-        <p><strong>💜 葡萄乾｜來自智利</strong></p>
-        <ul>
-            <li>特色：無籽大顆、果肉飽滿不黏手、糖分低。</li>
-            <li>比較：美國產地較小、甜膩且黏手。</li>
-        </ul>
-    </section>
-
-    <section id="flavors">
-        <h2>三、 隨手包口味介紹：獨家話術</h2>
+<div id="brand" class="content-section active">
+    <div class="card">
+        <h2>【 LOVIN 堅果銷售攻略 】</h2>
+        <p>LOVIN，由全台最大堅果進口商「<strong>同興實業</strong>」創立的自有品牌。母公司有 <strong>80 年歷史</strong>，專門做食品貿易進口，是台灣堅果市佔率最高（佔 9 成）的公司。</p>
         
-        <h3>【 鹹香與在地特色 】</h3>
-        <p><strong>🧀 起司夏威夷豆：</strong>帕馬森起司粉調味，鹹香濃郁。</p>
-        <div class="speech-bubble">🗣️「吃起來超像起司爆米花，男生和小朋友都超愛！」</div>
+        <div class="highlight-box">
+            🔥 <strong>市場震撼彈：</strong><br>
+            市面上 <strong>3 顆夏威夷豆，有 2 顆</strong> 就是從我們家出去的！
+        </div>
 
-        <p><strong>🧂 椒鹽夏威夷豆：</strong>無油健康版鹹酥雞。</p>
-        <div class="speech-bubble">🗣️「真的超像在吃鹹酥雞！嘴饞怕胖的客人一口接一口超唰嘴！」</div>
+        <h3>⚙️ 研發實力</h3>
+        <ul>
+            <li><strong>手作堅果商品：</strong>運用「手作堅果廚房」研發能力，推出限定、季節性新品。</li>
+            <li><strong>獨家 AI 第五代智能低溫烘培</strong></li>
+            <li><strong>急速冷粹技術：</strong>鎖住營養與鮮甜。</li>
+        </ul>
 
-        <p><strong>🍗 雞排腰果：</strong></p>
-        <div class="speech-bubble">🗣️「甜鹹雞排味，是非常在地、台灣特色的口味。」</div>
+        <h3>🤝 合作/聯名廠商</h3>
+        <div class="info-tag-container">
+            <span class="info-tag">東方文華酒店</span><span class="info-tag">圓山大飯店</span><span class="info-tag">詩特莉</span>
+            <span class="info-tag">天仁茗茶</span><span class="info-tag">華膳空廚</span><span class="info-tag">大巨蛋</span>
+            <span class="info-tag">金格食品</span><span class="info-tag">立法院</span><span class="info-tag">遠雄人壽</span><span class="info-tag">吳寶春</span>
+        </div>
 
-        <p><strong>🌶 芥末杏仁：</strong></p>
-        <div class="speech-bubble">🗣️「有衝鼻嗆辣感，像吃芥末洋芋片但不辣嘴，敢吃辣的回購第一名！」</div>
+        <h3>📦 原物料出口給</h3>
+        <div class="info-tag-container">
+            <span class="info-tag">大稻埕堅果</span><span class="info-tag">萬歲牌</span><span class="info-tag">各大量販店</span>
+            <span class="info-tag">五星級酒店</span><span class="info-tag">亞尼克</span><span class="info-tag">紅布朗</span>
+        </div>
 
-        <h3>【 甜美與文青系列 】</h3>
-        <p><strong>🍬 太妃糖夏威夷豆：</strong>甜甜奶香味、不膩口。</p>
-        <div class="speech-bubble">🗣️「像甜點一樣香，是下午茶女神款！」</div>
+        <h3>💡 核心差異點</h3>
+        <ul>
+            <li>不同品牌原料等級差很多。別人選便宜原料，吃起來<strong>油耗味重</strong>。</li>
+            <li><strong>LOVIN</strong> 堅持用最高等級原料，成本高但吃得出差異。</li>
+        </ul>
+    </div>
+</div>
 
-        <p><strong>🧋 珍珠奶茶夏威夷豆：</strong>黑糖香氣、口感軟糯。</p>
-        <div class="speech-bubble">🗣️「吃起來像在吃白巧克力，台灣名飲口味，國外客最愛。」</div>
+<div id="encyclopedia" class="content-section">
+    <div class="card">
+        <h2>堅果知識百科</h2>
+        
+        <p><strong>❤️ 枸杞 | 中國</strong></p>
+        <p>特色：果實飽滿、色澤紅潤、甜中帶微酸、自然果香明顯。<br>營養：豐富β-胡蘿蔔素、維他命A、枸杞多醣，有助抗氧化、護眼與調節體質。</p>
 
-        <p><strong>🧁 焦糖奶油杏仁條：</strong>手工炒焦糖後切條。</p>
-        <div class="speech-bubble">🗣️「像法式甜點，手工製的一條一條，小包裝送人很有質感。」</div>
+        <p><strong>❤️ 蔓越莓 | 美國</strong></p>
+        <p>特色：「整粒」鮮採、酸度高、甜度低、接近原味。<br>營養：維他命C、花青素、泌尿保養。<br>比較：市售多為切片且加糖過重。</p>
 
-        <p><strong>🍫 黑鑽可可杏仁：</strong>獨家脆皮工法，撒上微苦可可粉。</p>
-        <div class="speech-bubble">🗣️「外皮像餅乾一樣脆，香氣十足不甜膩，文青客超愛！」</div>
+        <p><strong>💜 葡萄乾 | 智利</strong></p>
+        <p>特色：無籽大顆飽滿、不黏手、糖份低。<br>營養：鐵、鈣、多酚，補血抗疲勞。<br>比較：美國產地較小粒且黏手甜膩。</p>
 
-        <p><strong>☕ 摩卡可可腰果：</strong>咖啡加可可雙重香氣。</p>
-        <div class="speech-bubble">🗣️「女生最愛的大人系下午茶口味，香氣濃、甜度不高。」</div>
+        <p><strong>🤍 腰果 | 越南(安迪日商)</strong></p>
+        <p>特色：清脆奶香、色澤潔白、品質極穩。<br>營養：強化骨骼、控糖護腦。<br>堅持：僅用日商專供出口等級，非一般來源。</p>
 
-        <h3>【 健康原味系列 】</h3>
-        <p><strong>🤍 綜合堅果 (純素)：</strong>腰果、核桃、夏豆、胡桃、杏仁。</p>
-        <div class="speech-bubble">🗣️「5 種原味無調味，控制飲食、健身的首選，簡單營養有飽足感！」</div>
+        <p><strong>💙 夏威夷果 | 澳洲</strong></p>
+        <p>特色：頂級 1 號果、綿密口感、手工剝殼。<br>市佔：LOVIN 供應全台約 2/3 夏豆市場。<br>比較：南非產果較小且口感偏硬。</p>
 
-        <p><strong>🩷 綜合纖果 (純素)：</strong>堅果加果乾（含蔓越莓、枸杞、南瓜子等）。</p>
-        <div class="speech-bubble">🗣️「甜中帶脆有層次，幫助排便與代謝。」</div>
+        <p><strong>💛 核桃 | 美國</strong></p>
+        <p>特色：完整整顆、無油耗苦澀、長輩友善。<br>營養：健腦抗老、預防阿茲海默。<br>比較：市售多碎小且苦味重。</p>
 
-        <p><strong>💙 綜合臻果 (純素)：</strong>黑豆、夏威夷豆、蔓越莓、芒果乾。</p>
-    </section>
+        <p><strong>🤎 胡桃 | 美國(綠谷)</strong></p>
+        <p>特色：1/2 猛瑪象級、尾韻帶可可香。<br>營養：最強抗氧化堅果，對抗自由基。</p>
 
-    <section id="strategy">
-        <h2>四、 LOVIN 銷售攻略：實戰心法</h2>
-        <h3>1. 試吃與開發 (發試吃是關鍵)</h3>
-        <p><strong>主動微笑：</strong>「您好～我們是全台最大堅果進口商，免費高品質堅果請試吃！」</p>
-        <p><strong>亮點介紹：</strong>「每 3 顆夏豆就有 2 顆是我們家的，很多藝人明星都在吃！」</p>
-        <p><strong>比較法：</strong>告知客人外面保健食品一個月 $3000，我們一天只要 $45 就能獲取健康與美味。</p>
+        <p><strong>💙 杏仁粒 | 美國藍鑽</strong></p>
+        <p>特色：全球第一大廠、酥脆風味濃郁。<br>營養：鈣含量堅果之冠、維生素E美肌。<br>比較：市售杏仁粒乾澀風味弱。</p>
+    </div>
+</div>
 
-        <h3>2. 成交三步驟</h3>
-        <p><strong>Step 1 建立信任：</strong>提 80 年歷史、101 董事長賈永婕與藝人背書。</p>
-        <p><strong>Step 2 解決需求：</strong>送禮推「印花設計大方」；健康推「天然低熱量」；實惠推「85 折優惠」。</p>
-        <p><strong>Step 3 創造稀缺感：</strong>強調「滿額贈限量」、「特價恢復原價」、「免運代寄服務」。</p>
+<div id="flavors" class="content-section">
+    <div class="card">
+        <h2>隨手包口味介紹</h2>
+        
+        <p>🧀 <strong>起司夏威夷豆 | 帕馬森鹹香</strong><br>🗣️「這款是用帕馬森起司粉調味的，鹹香濃郁，吃起來超像起司爆米花！」</p>
+        <hr>
+        <p>🧂 <strong>椒鹽夏威夷豆 | 鹹酥雞口感</strong><br>🗣️「這款超像在吃鹹酥雞！無油健康版，嘴饞又怕胖客人的最愛！」</p>
+        <hr>
+        <p>🍓 <strong>太妃糖夏威夷豆 | 甜香奶感</strong><br>🗣️「甜甜奶香不會膩，像甜點一樣香，是下午茶女神款！」</p>
+        <hr>
+        <p>🧁 <strong>焦糖奶油杏仁條 | 法式甜點感</strong><br>🗣️「手工製作切成小條，香脆可口，小包裝送人很有質感！」</p>
+        <hr>
+        <p>🍫 <strong>黑鑽可可杏仁 | 獨家脆皮</strong><br>🗣️「外皮像餅乾一樣脆，撒上微苦可可粉，香氣十足不甜膩，文青最愛！」</p>
+        <hr>
+        <p>🥤 <strong>珍珠奶茶夏威夷豆 | 台灣特色</strong><br>🗣️「有黑糖香氣且口感軟糯，國外客人首選！」</p>
+        <hr>
+        <p>🍗 <strong>雞排腰果 | 在地台味</strong><br>🗣️「鹹甜雞排味有夏威夷豆、胡桃、核桃、杏仁、腰果，非常特別的在地創意口味！」</p>
+        <hr>
+        <p>🤍 <strong>綜合堅果 | 原味首選 (純素)</strong><br>🗣️「5種堅果無調味，最健康，健身族群必選！」</p>
+    </div>
+</div>
 
-        <h3>3. 階梯定價話術 (以 20 包為成交核心)</h3>
-        <p><strong>方案 A：</strong>10 包 $569 (8 折)，平均 $57/包，省 $131。</p>
-        <p><strong>方案 B：</strong>20 包 $999 (7 折)，平均 $50/包！</p>
-        <div class="speech-bubble">🗣️「多加 $400 就多 10 包，平均每包只要 $50！還送纖果迷你包、不織布袋、零錢包。」</div>
-        <p><strong>大單方案：</strong>40 入 $1699 (6 折)，現折 $1100。</p>
-        <div class="speech-bubble">🗣️「買越多單價越低，滿 5000 免運寄到家，再送原價 $580 的雲朵禮盒！」</div>
-    </section>
+<div id="sales" class="content-section">
+    <div class="card">
+        <h2>隨手包系列方案</h2>
+        <table>
+            <tr><th>方案</th><th>單一口味</th><th>混搭口味</th></tr>
+            <tr><td>10 入</td><td><span class="price">$569</span></td><td><span class="price">$669</span></td></tr>
+            <tr><td>20 入</td><td><span class="price">$999</span></td><td><span class="price">$1099</span></td></tr>
+            <tr><td>40 入</td><td><span class="price">$1799</span></td><td><span class="price">$1899</span></td></tr>
+        </table>
 
-    <section id="qa">
-        <h2>五、 常見客戶問答 (Q&A)</h2>
-        <p><strong>Q1：哪些是純素？</strong></p>
-        <p>A：綜合堅果、綜合纖果、綜合臻果。調味系列含五辛或奶蛋素。</p>
+        <div class="highlight-box">
+            🔥 <strong>指定即期優惠：</strong> (效期剩6個月內)<br>
+            指定口味：太妃、摩卡、椒鹽、焦糖、鱈魚、芥末...等<br>
+            • 20入組：原價 $1099 → <span class="highlight-box" style="padding:2px; background:none; border:none; color:red; font-weight:bold;">特價 $899</span> (需包含10包以上即期)<br>
+            • 40入組：原價 $1899 → <span class="highlight-box" style="padding:2px; background:none; border:none; color:red; font-weight:bold;">特價 $1699</span> (需包含20包以上即期)
+        </div>
 
-        <p><strong>Q2：這包也太貴了吧？</strong></p>
-        <p>A：我們選用最高等級原料，無油耗味。換算下來一天一包才 $44-50，比手搖飲便宜，卻是天然的養身補給。</p>
+        <h3>📦 袋裝 / 罐裝系列</h3>
+        <p style="text-align:center; font-size:1.2em; color:var(--price-red); font-weight:bold;">全品項 買四送一</p>
 
-        <p><strong>Q3：我有過敏／怕胖？</strong></p>
-        <p>A：我們有無鹽無糖的原味系列，一包僅約 150 大卡。過敏標示於包裝背面左下角。</p>
+        <h3>✨ 大宗結帳折扣</h3>
+        <ul>
+            <li>滿 $3,000 → 享 <strong>95 折</strong></li>
+            <li>滿 $5,000 → 享 <strong>9 折</strong></li>
+        </ul>
+    </div>
+</div>
 
-        <p><strong>Q4：跟某品牌有什麼不一樣？</strong></p>
-        <p>A：我們是他們的原料供應商，但 LOVIN 只選用最高等級的那一批。</p>
+<div id="qa" class="content-section">
+    <div class="card">
+        <h2>專業應對話術 (QA)</h2>
+        
+        <div class="qa-item">
+            <div class="qa-q">Q1. 客人說「有點貴」</div>
+            <div class="qa-fact">事實：對價格有抗拒 → 結論：價值感不足</div>
+            <div class="qa-a">「很多客人一開始也會這樣覺得，但吃過之後會回來，主要是因為我們的烘焙方式不一樣，口感比較乾淨不油膩。我們選用最高品質的堅果，送禮也比較有質感。」</div>
+        </div>
 
-        <p><strong>Q5：保存期限？</strong></p>
-        <p>A：鮮萃技術加氮氣填充，未開封 12 個月。開封後請冷藏保存。</p>
-    </section>
+        <div class="qa-item">
+            <div class="qa-q">Q2. 客人說「我沒有在吃堅果」</div>
+            <div class="qa-a">「那你平常會送禮嗎？很多人是買來送人的。可以先吃看看，有些口味像零食，不像傳統堅果，會被口味打到。」</div>
+        </div>
 
-    <section>
-        <h2>📍 門市據點分布</h2>
-        <div class="location-tag">台北車站</div>
-        <div class="location-tag">中山誠品</div>
-        <div class="location-tag">松菸誠品</div>
-        <div class="location-tag">信義 A8</div>
-    </section>
+        <div class="qa-item">
+            <div class="qa-q">Q3. 客人說「我都吃別牌」</div>
+            <div class="qa-a">「那你其實是懂吃的，可以吃看看差異。很多客人後來回來是因為比較不油，可以當作升級版試試看。」</div>
+        </div>
 
+        <div class="qa-item">
+            <div class="qa-q">Q6. 客人問「會不會很甜/會胖嗎」</div>
+            <div class="qa-a">「原味是無糖無鹽，一天適量吃是健康的。調味皆為天然方式做成特殊風味，熱量低且烘焙方式乾淨。」</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">Q9. 客人問「有沒有推薦」</div>
+            <div class="qa-a">「第一次建議這組，這是賣最好的，我幫你配。」</div>
+        </div>
+
+        <hr>
+        <h2>常見問題 (FAQ)</h2>
+        <p><strong>Q: 保存期限有多久？</strong><br>A: 採鮮萃技術與氮氣填充。隨手包未開封可保存 12 個月，開封後建議冷藏並於一個月內吃完。</p>
+        <p><strong>Q: 想減肥的人可以吃嗎？</strong><br>A: 可以。富含好油與膳食纖維，飽足感高且低升糖。建議每日食用一包隨手包。</p>
+    </div>
 </div>
 
 <footer>
-    <p>© 2026 LOVIN 精品堅果 - 內部教育訓練資料</p>
-    <p>請同仁務必熟記上述內容，提供顧客最專業的服務</p>
+    <p>© 2026 LOVIN 精品堅果 - 內部訓練專用</p>
+    <p>據點：台北車站 | 中山誠品 | 松菸誠品 | 信義 A8</p>
 </footer>
+
+<script>
+    function showTab(tabId) {
+        // 隱藏所有分頁
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => section.classList.remove('active'));
+        
+        // 取消所有按鈕活性
+        const btns = document.querySelectorAll('.tab-btn');
+        btns.forEach(btn => btn.classList.remove('active'));
+        
+        // 顯示點選的分頁
+        document.getElementById(tabId).classList.add('active');
+        
+        // 找到對應按鈕並設為活性 (透過文字內容匹配)
+        const tabMap = {
+            'brand': '品牌概覽',
+            'encyclopedia': '知識百科',
+            'flavors': '隨手包口味',
+            'sales': '銷售方案',
+            'qa': '實戰 QA'
+        };
+        btns.forEach(btn => {
+            if(btn.innerText === tabMap[tabId]) btn.classList.add('active');
+        });
+
+        // 滾動到頂部
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
