@@ -191,20 +191,45 @@
 
         /* QA 樣式 */
         .qa-box {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 25px;
         }
+
+        .qa-box:last-child { border-bottom: none; }
 
         .qa-q {
             font-weight: bold;
             color: var(--brand-dark);
             font-size: 1.2rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .qa-q::before {
+            content: "Q";
+            background: var(--brand-gold);
+            color: white;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 0.9rem;
         }
 
         .qa-fact {
-            color: #999;
+            color: #888;
             font-size: 0.9rem;
             margin-bottom: 10px;
+            background: #f9f9f9;
+            padding: 5px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            border: 1px solid #eee;
         }
 
         .qa-a {
@@ -212,7 +237,17 @@
             padding: 20px;
             border-radius: 15px;
             border: 1px dashed var(--brand-gold);
+            white-space: pre-line;
+            position: relative;
         }
+
+        .flavor-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .flavor-item:last-child { border-bottom: none; }
+        .flavor-name { font-weight: bold; color: var(--brand-dark); font-size: 1.1rem; }
+        .flavor-speech { color: #666; font-style: italic; display: block; margin-top: 5px; }
 
         footer {
             text-align: center;
@@ -236,7 +271,7 @@
     <button class="nav-btn" onclick="openTab('wiki')">百科與口味</button>
     <button class="nav-btn" onclick="openTab('prices')">銷售方案</button>
     <button class="nav-btn" onclick="openTab('gifts')">滿額贈</button>
-    <button class="nav-btn" onclick="openTab('qa')">實戰 QA</button>
+    <button class="nav-btn" onclick="openTab('chat')">應對話術</button>
 </nav>
 
 <div id="story" class="tab-content active">
@@ -292,16 +327,54 @@
         <hr>
 
         <h2>三、 隨手包口味介紹</h2>
-        <p>🧀 <strong>起司夏威夷豆 | 帕馬森鹹香</strong><br>🗣️「吃起來超像起司爆米花，男生和小朋友都超愛！」</p>
-        <p>🧂 <strong>椒鹽夏威夷豆 | 鹹酥雞口感</strong><br>🗣️「無油健康版鹹酥雞！嘴饞又怕胖客人的最愛！」</p>
-        <p>🍓 <strong>太妃糖夏威夷豆 | 甜香奶感</strong><br>🗣️「甜甜奶香不會膩，像甜點一樣香！」</p>
-        <p>🧁 <strong>焦糖奶油杏仁條 | 法式甜點感</strong><br>🗣️「手工製作切成小條，小包裝送人很有質感！」</p>
-        <p>🍫 <strong>黑鑽可可杏仁 | 獨家脆皮</strong><br>🗣️「外皮像餅乾一樣脆，撒上微苦可可粉，文青最愛！」</p>
-        <p>🥤 <strong>珍珠奶茶夏威夷豆 | 台灣特色</strong><br>🗣️「有黑糖香氣且口感軟糯，國外客人首選！」</p>
-        <p>🍗 <strong>雞排腰果 | 在地台味</strong><br>🗣️「鹹甜雞排味，非常有層次的在地創意口味！」</p>
-        <p>🤍 <strong>綜合堅果 | 原味首選 (純素)</strong><br>🗣️「5種無調味堅果，健身族群必選！」</p>
-        <p>🩷 <strong>綜合纖果 | 代謝黃金比 (純素)</strong><br>🗣️「五大原味堅果加蔓越莓、青提子，幫助代謝！」</p>
-        <p>🍑 <strong>綜合臻果 | 清新果香 (純素)</strong><br>🗣️「黑豆、夏豆、蔓越莓、芒果乾，健康爽口。」</p>
+        <div class="flavor-item">
+            <span class="flavor-name">🧀 起司夏威夷豆｜帕馬森鹹香</span>
+            <span class="flavor-speech">🗣️「這款是用帕馬森起司粉調味的，鹹香濃育，吃起來超像起司爆米花！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🧂 椒鹽夏威夷豆｜鹹酥雞口感</span>
+            <span class="flavor-speech">🗣️「這款超像在吃鹹酥雞！無油健康版，嘴饞又怕胖客人的最愛！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🍬 太妃糖夏威夷豆｜甜香奶感</span>
+            <span class="flavor-speech">🗣️「甜甜奶香不會膩，像甜點一樣香，是下午茶女神款！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🧁 焦糖奶油杏仁條｜法式甜點感</span>
+            <span class="flavor-speech">🗣️「手工製作切成小條，香脆可口，小包裝送人很有質感！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🍫 黑鑽可可杏仁｜獨家脆皮</span>
+            <span class="flavor-speech">🗣️「外皮像餅乾一樣脆，撒上微苦可可粉，香氣十足不甜膩，文青最愛！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🌶 芥末杏仁｜衝鼻過癮</span>
+            <span class="flavor-speech">🗣️「嗆辣感爽快但不辣嘴」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">☕ 摩卡可可腰果｜大人系下午茶</span>
+            <span class="flavor-speech">🗣️「咖啡與可可雙重香氣，甜度不高，濃郁大人味！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🧋 珍珠奶茶夏威夷豆｜台灣特色</span>
+            <span class="flavor-speech">🗣️「有黑糖香氣且口感軟糯，國外客人首選！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🍗 雞排腰果｜在地台味</span>
+            <span class="flavor-speech">🗣️「鹹甜雞排味有夏威夷豆、胡桃、核桃、杏仁、腰果，非常特別的在地創意口味！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🤍 綜合堅果｜原味首選（純素）</span>
+            <span class="flavor-speech">🗣️「5種堅果無調味，有夏威夷豆、胡桃、核桃、杏仁、腰果，最健康，健身族群必選！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🩷 綜合纖果｜代謝黃金比（純素）</span>
+            <span class="flavor-speech">🗣️「五大原味堅果加蔓越莓、青提子，層次豐富，幫助排便促進代謝！」</span>
+        </div>
+        <div class="flavor-item">
+            <span class="flavor-name">🥭 綜合臻果｜清新果香（純素）</span>
+            <span class="flavor-speech">🗣️「有黑豆、夏威夷豆、蔓越莓、芒果乾，健康爽口」</span>
+        </div>
     </div>
 </div>
 
@@ -355,40 +428,56 @@
     </div>
 </div>
 
-<div id="qa" class="tab-content">
+<div id="chat" class="tab-content">
     <div class="glass-card">
         <h2>六、 專業應對話術 (QA)</h2>
         
         <div class="qa-box">
-            <div class="qa-q">Q1. 客人說「有點貴」</div>
-            <div class="qa-fact">事實：顧客對價格有抗拒 → 結論：價值感不足</div>
-            <div class="qa-a">「很多客人一開始也會這樣覺得，但吃過之後會回來，主要是因為我們的烘焙方式不一樣，口感比較乾淨不油膩。我們比較像精品堅果，跟一般大量烘焙有明顯差異。」</div>
+            <div class="qa-q">客人說「有點貴」</div>
+            <div class="qa-fact">事實：對價格有抗拒 → 結論：價值感不足</div>
+            <div class="qa-a">「很多客人一開始也會這樣覺得，但吃過之後會回來，主要是因為我們的烘焙方式不一樣，口感比較乾淨不油膩。我們選用最高品質的堅果，送禮也比較有質感。」</div>
         </div>
 
         <div class="qa-box">
-            <div class="qa-q">Q2. 客人說「我沒有在吃堅果」</div>
-            <div class="qa-a">「那你平常會送禮嗎？很多人是買來送人的。可以先試吃看看，我們有些口味像零食，不像傳統堅果，一定會有您喜歡的味道。」</div>
+            <div class="qa-q">客人說「我沒有在吃堅果」</div>
+            <div class="qa-a">「那你平常會送禮嗎？很多人是買來送人的。可以先吃看看，有些口味像零食，不像傳統堅果，會被口味打到。」</div>
         </div>
 
         <div class="qa-box">
-            <div class="qa-q">Q3. 客人說「我都吃別牌」</div>
-            <div class="qa-a">「那您其實是懂吃的，可以吃看看差異。很多客人後來回來是因為比較不油，您可以當作升級版試試看。」</div>
+            <div class="qa-q">客人說「我都吃別牌」</div>
+            <div class="qa-a">「那你其實是懂吃的，可以吃看看差異。很多客人後來回來是因為比較不油，可以當作升級版試試看。」</div>
         </div>
 
         <div class="qa-box">
-            <div class="qa-q">Q6. 客人問「會不會很甜/會胖嗎」</div>
-            <div class="qa-a">「原味是無糖無鹽，烘焙方式乾淨，調味也皆為天然方式做成，熱量非常低，請放心食用。」</div>
+            <div class="qa-q">客人問「會不會很甜/會胖嗎」</div>
+            <div class="qa-a">「原味是無糖無鹽，一天適量吃是健康的。調味皆為天然方式做成特殊風味，熱量低且烘焙方式乾淨。」</div>
         </div>
 
         <div class="qa-box">
-            <div class="qa-q">Q9. 客人問「有沒有推薦」</div>
-            <div class="qa-a">「第一次建議這組，這是賣最好的，我幫您配。」</div>
+            <div class="qa-q">客人問「有沒有推薦」</div>
+            <div class="qa-a">「第一次建議這組，這是賣最好的，我幫你配。」</div>
+        </div>
+
+        <div class="qa-box">
+            <div class="qa-q">客人說「還好」</div>
+            <div class="qa-a">「我幫你換一個比較有特色的。剛剛那個比較清爽，我幫你試重一點的。你喜歡甜還是鹹？我幫你挑。」</div>
         </div>
 
         <hr>
         <h2>常見問題 (FAQ)</h2>
-        <p><strong>哪些是純素？</strong><br>純素：綜合堅果、纖果、臻果。調味系列含五辛或奶蛋素視為葷食。</p>
-        <p><strong>保存期限有多久？</strong><br>未開封可保存 12 個月。開封後請冷藏，建議一個月內吃完。</p>
+        <div class="qa-box">
+            <div class="qa-q">保存期限有多久？</div>
+            <div class="qa-a">A: 採鮮萃技術與氮氣填充。隨手包未開封可保存 12 個月，開封後建議冷藏並於一個月內吃完。</div>
+        </div>
+        <div class="qa-box">
+            <div class="qa-q">想減肥的人可以吃嗎？</div>
+            <div class="qa-a">A: 可以。富含好油與膳食纖維，飽足感高且低升糖。建議每日食用一包隨手包。</div>
+        </div>
+        <div class="qa-box">
+            <div class="qa-q">哪些產品是純素的？</div>
+            <div class="qa-a">純素產品：綜合堅果、綜合纖果、綜合臻果。
+            調味系列：含五辛素或奶蛋素（視為葷食）。</div>
+        </div>
     </div>
 </div>
 
@@ -399,23 +488,19 @@
 
 <script>
     function openTab(tabName) {
-        // 隱藏所有分頁
         const contents = document.getElementsByClassName("tab-content");
         for (let i = 0; i < contents.length; i++) {
             contents[i].classList.remove("active");
         }
 
-        // 移除按鈕選中樣式
         const btns = document.getElementsByClassName("nav-btn");
         for (let i = 0; i < btns.length; i++) {
             btns[i].classList.remove("active");
         }
 
-        // 顯示點選分頁與選中按鈕
         document.getElementById(tabName).classList.add("active");
         event.currentTarget.classList.add("active");
 
-        // 頁面滾動到頂部
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 </script>
