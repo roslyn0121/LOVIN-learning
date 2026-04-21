@@ -37,6 +37,7 @@
 
         nav {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px;
+            background: var(--milk-cream);
         }
 
         nav button {
@@ -63,9 +64,7 @@
         
         .qa-item { margin-bottom: 20px; border-bottom: 1px solid var(--milk-cream); padding-bottom: 15px; }
         .qa-q { color: var(--gold); font-weight: bold; font-size: 1.05rem; display: block; margin-bottom: 5px; }
-        .qa-fact { font-size: 0.8rem; color: #999; margin-bottom: 8px; font-style: italic; }
         .qa-a { color: var(--deep-sage); background: var(--soft-yellow); padding: 10px 15px; border-radius: 10px; display: block; }
-        .qa-a div { margin-bottom: 4px; border-left: 2px solid var(--gold); padding-left: 8px; }
 
         .power-item { background: var(--soft-yellow); padding: 15px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid var(--gold); }
         .highlight { color: var(--accent-red); font-weight: bold; }
@@ -80,10 +79,6 @@
         .gift-list b { color: var(--gold); text-align: right; }
         
         .example-box { background: var(--soft-yellow); padding: 15px; border-radius: 12px; font-size: 0.9rem; margin-top: 15px; border: 1px solid var(--soft-peach); }
-        .hr-line { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
-        
-        .knowledge-item { margin-bottom: 25px; }
-        .knowledge-tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: bold; margin-bottom: 5px; }
 
         footer { text-align: center; padding: 30px; font-size: 0.75rem; color: var(--sage-green); }
     </style>
@@ -158,29 +153,20 @@
             </table>
             
             <h3 style="margin-top:25px;">🔥 指定即期優惠</h3>
-            <p style="font-size: 0.85rem; color: var(--accent-red); margin-bottom: 5px;">指定口味：太妃、摩卡、椒鹽、焦糖、鱈魚、芥末⋯等 (效期剩6個月內)</p>
             <div class="power-item" style="background: #FFF5F5; border-left-color: var(--accent-red);">
-                • <strong>20入組：</strong> 原價 $1099 ➔ <span class="highlight">特價 $899</span><br>
-                <small>(需包含 10 包以上即期口味)</small><br><br>
-                • <strong>40入組：</strong> 原價 $1899 ➔ <span class="highlight">特價 $1699</span><br>
-                <small>(需包含 20 包以上即期口味)</small>
+                • <strong>20入組：</strong> <span class="highlight">特價 $899</span><br>
+                • <strong>40入組：</strong> <span class="highlight">特價 $1699</span>
             </div>
         </div>
         <div class="card">
             <h2>📦 袋裝 / 罐裝系列</h2>
             <p style="font-weight: bold; text-align: center; font-size: 1.2rem; color: var(--accent-red);">全品項 買四送一</p>
         </div>
-        <div class="card">
-            <h2>✨ 大宗結帳折扣</h2>
-            <p>• 滿 <strong>$3,000</strong> ➔ 享 <strong>95 折</strong></p>
-            <p>• 滿 <strong>$5,000</strong> ➔ 享 <strong>9 折</strong></p>
-        </div>
     </div>
 
     <div id="gift" class="section">
         <div class="card">
-            <h2>活動如下</h2>
-            <p style="font-weight: bold; color: var(--deep-sage); border-bottom: 2px solid var(--soft-peach); padding-bottom: 5px;">滿額贈清單</p>
+            <h2>滿額贈清單</h2>
             <ul class="gift-list">
                 <li><span>500 元</span> <b>試吃包 2入 / 茶包 2入</b></li>
                 <li><span>1000 元</span> <b>試吃包 4入</b></li>
@@ -188,14 +174,56 @@
                 <li><span>2000 元</span> <b>即期口味隨手包 4入</b></li>
                 <li><span>3000 元</span> <b>品牌麻布袋</b></li>
                 <li><span>5000 元</span> <b>雲朵禮盒隨手包 6入</b></li>
-                <li><span>10000 元</span> <b>任選款式中禮盒(12入隨手包)</b></li>
-                <li><span>20000 元</span> <b>烏魚子禮盒</b></li>
+                <li><span>10000 元</span> <b>任選中禮盒</b></li>
             </ul>
 
             <div class="example-box">
-                <strong>🎁 贈品累贈方式說明：</strong><br>
+                <strong>🎁 贈品累贈說明：</strong><br>
                 EX : 客人消費 8000 元<br>
-                可得 <span class="highlight">5000元滿額贈(雲朵禮盒) + 3000元滿額贈(麻布袋)</span><br>
-                <small style="color: #666;">（※ 金額需超過門檻總和 5000 + 3000 才可累積贈送）</small>
+                可得 <span class="highlight">5000元贈品 + 3000元贈品</span>
             </div>
-        </
+        </div>
+    </div>
+
+    <div id="qa" class="section">
+        <div class="card">
+            <h2>應對話術</h2>
+            <div class="qa-item">
+                <span class="qa-q">Q: 為什麼你們家堅果比較貴？</span>
+                <span class="qa-a">A: 因為我們是進口商直營，只挑選最高等級(第一道)的生果，並用低溫烘培鎖住鮮甜，口感完全沒有油耗味。</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="faq" class="section"><div class="card"><h2>常見問題</h2><p>內容更新中...</p></div></div>
+    <div id="flavors" class="section"><div class="card"><h2>口味介紹</h2><p>內容更新中...</p></div></div>
+    <div id="knowledge" class="section"><div class="card"><h2>堅果知識</h2><p>內容更新中...</p></div></div>
+
+</div>
+
+<footer>
+    &copy; LOVIN 80週年品牌銷售百科 | 內部訓練專用
+</footer>
+
+<script>
+    function switchTab(tabId) {
+        // 切換按鈕狀態
+        const buttons = document.querySelectorAll('nav button');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        // 切換顯示內容
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        
+        // 找到對應按鈕並高亮
+        const currentBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabId));
+        if (currentBtn) currentBtn.classList.add('active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
